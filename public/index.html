@@ -7,16 +7,11 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-		<script src="/controller/register.module.js"></script>
-		<script src="/controller/game.module.js"></script>
 		<script src="app.js"></script>
     </head>
 	<body>
-		<div><a ui-sref="register">Register</a></div>
-		<div><a ui-sref="game">Game</a></div>
-		
-		<!-- MAIN CONTENT -->
-		<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+		<div><a ui-sref="register">Register</a>  <a ui-sref="game">Game</a></div>
+		<!-- ui-view is where we inject the ui-router content-->
 		<div class="container">
 			<div ui-view></div>
 		</div>
