@@ -1,0 +1,31 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+body {
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Comic Sans MS', Helvetica, sans-serif;
+}
+
+table {
+  margin-left:auto; 
+  margin-right:auto; 
+  width: 551px; 
+}
+
+td {
+  height: 175px;
+  width: 175px;
+  text-align: center;
+  font-size: 120px;
+  border: 2px solid #cccccc;
+}
+
+#players {
+  margin-left:auto; 
+  margin-right:auto;
+  padding: 20px 10px 10px 10px;
+  text-align: center;
+}
+

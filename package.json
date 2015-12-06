@@ -1,0 +1,29 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Tic-Tac-Toe app implemented with MEAN stack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/king-saddi/Tic-Tac-Toe.git"
+  },
+  "author": "Kunal Saddi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/king-saddi/Tic-Tac-Toe/issues"
+  },
+  "homepage": "https://github.com/king-saddi/Tic-Tac-Toe",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongodb": "^2.0.49",
+    "mongoose": "^4.2.9",
+    "morgan": "^1.6.1",
+    "node-uuid": "^1.4.7",
+    "nodemon": "^1.8.1",
+    "serve-static": "^1.10.0"
+  }
+}
