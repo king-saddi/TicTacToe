@@ -4,53 +4,70 @@
       <meta name="viewport" content="width=600px" />
       <link rel="stylesheet" href="css/style.css" type="text/css">
     </head>
-    <body ng-controller="ticController as toe">  
-        <header id="players">
-          <div>Current Players turn: {{toe.currentPlayer}}</div>
-          <button ng-show="toe.sflag" ng-click="toe.start()" >Start Game</button>
-          <button ng-show="toe.rflag" ng-click="toe.restart()" >Restart Game</button>
-            
-        </header>
-        <table>
-          <tr>
-            <td id="0" ng-click="toe.select(0)">
-                <img ng-show="toe.board[0]" ng-src="/images/{{toe.board[0]}}.PNG">
-            </td>
-            <td id="1" ng-click="toe.select(1)">
-                <img ng-show="toe.board[1]" ng-src="/images/{{toe.board[1]}}.PNG">  
-            </td>
-            <td id="2" ng-click="toe.select(2)">
-                <img ng-show="toe.board[2]" ng-src="/images/{{toe.board[2]}}.PNG">  
-            </td>
-          </tr>
-          <tr>
-            <td id="3" ng-click="toe.select(3)">
-                <img ng-show="toe.board[3]" ng-src="/images/{{toe.board[3]}}.PNG">  
-            </td>
-            <td id="4" ng-click="toe.select(4)">
-                <img ng-show="toe.board[4]" ng-src="/images/{{toe.board[4]}}.PNG">  
-            </td>
-            <td id="5" ng-click="toe.select(5)">
-                <img ng-show="toe.board[5]" ng-src="/images/{{toe.board[5]}}.PNG">
-            </td>
-          </tr>
-          <tr>
-            <td id="6" ng-click="toe.select(6)">
-                <img ng-show="toe.board[6]" ng-src="/images/{{toe.board[6]}}.PNG">  
-            </td>
-            <td id="7" ng-click="toe.select(7)">
-                <img ng-show="toe.board[7]" ng-src="/images/{{toe.board[7]}}.PNG">  
-            </td>
-            <td id="8" ng-click="toe.select(8)">
-                <img ng-show="toe.board[8]" ng-src="/images/{{toe.board[8]}}.PNG">  
-            </td>
-          </tr>
-        </table>
-        
-        <!---<script src="/node_modules/angular/angular.js"></script> --->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-        <script src="ngapp/game/game.module.js"></script>
-    </body>
+	<body>
+	
+		<!--
+		<section ng-controller="userController as users">  
+			<form name="myForm">
+				<label>Enter a User Name
+					<input type="text" ng-model="user_name">
+				</label>
+			</form>
+			<form name="myForm">
+				<label>Enter Opponent's User Name
+					<input type="text" ng-model="opponent_user_name">
+				</label>
+			</form>
+		</section>
+		-->
+		
+		<section ng-controller="ticController as toe">  
+			<header id="players">
+				<div>Current Players turn: {{toe.currentPlayer}}</div>
+				<button ng-show="toe.sflag" ng-click="toe.start()" >Start Game</button>
+				<button ng-show="toe.rflag" ng-click="toe.restart()" >Restart Game</button>
+			</header>
+			<table>
+				<tr>
+					<td id="0" ng-click="toe.select(0)">
+						<img ng-show="toe.board[0]" ng-src="/images/{{toe.board[0]}}.PNG">
+					</td>
+					<td id="1" ng-click="toe.select(1)">
+						<img ng-show="toe.board[1]" ng-src="/images/{{toe.board[1]}}.PNG">  
+					</td>
+					<td id="2" ng-click="toe.select(2)">
+						<img ng-show="toe.board[2]" ng-src="/images/{{toe.board[2]}}.PNG">  
+					</td>
+				</tr>
+				<tr>
+					<td id="3" ng-click="toe.select(3)">
+						<img ng-show="toe.board[3]" ng-src="/images/{{toe.board[3]}}.PNG">  
+					</td>
+					<td id="4" ng-click="toe.select(4)">
+						<img ng-show="toe.board[4]" ng-src="/images/{{toe.board[4]}}.PNG">  
+					</td>
+					<td id="5" ng-click="toe.select(5)">
+						<img ng-show="toe.board[5]" ng-src="/images/{{toe.board[5]}}.PNG">
+					</td>
+				</tr>
+				<tr>
+					<td id="6" ng-click="toe.select(6)">
+						<img ng-show="toe.board[6]" ng-src="/images/{{toe.board[6]}}.PNG">  
+					</td>
+					<td id="7" ng-click="toe.select(7)">
+						<img ng-show="toe.board[7]" ng-src="/images/{{toe.board[7]}}.PNG">  
+					</td>
+					<td id="8" ng-click="toe.select(8)">
+						<img ng-show="toe.board[8]" ng-src="/images/{{toe.board[8]}}.PNG">  
+					</td>
+				</tr>
+			</table>
+		</section>
+	<body>
+	<!---<script src="/node_modules/angular/angular.js"></script> --->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="ngapp/register/register.module.js"></script>
+	<script src="ngapp/game/game.module.js"></script>
 </html>
