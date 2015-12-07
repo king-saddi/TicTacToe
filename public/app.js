@@ -14,7 +14,11 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         .state('game', {
             url: '/game',
             templateUrl: 'view/game.tmpl.html'
-        });        	
+        })     	
+        .state('chat', {
+            url: '/chat',
+            templateUrl: 'view/chat.tmpl.html'
+        });     
 })
 
 .controller('userController', ['UserService', function(UserService) {

@@ -1,10 +1,14 @@
 var express = require('express');
+var app = express();
 var morgan = require('morgan');
 var serveStatic = require('serve-static');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
+/*
 // Connecting to the Mongo DataBase
 mongoose.connect('mongodb://test:test@ds061974.mongolab.com:61974/ksks');
 
@@ -16,9 +20,8 @@ var userSchema = new Schema({
 });
 
 var User = mongoose.model('User', userSchema);
+*/
 
-
-var app = express();
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -27,7 +30,7 @@ app.use(bodyParser.json());
 app.use(serveStatic(__dirname + '/public'));
 
 var router = express.Router();
-
+/*
 router.get('/test', function(req, res) {
     User.find({}, function(err, users){
         if(err) throw err;
@@ -50,12 +53,26 @@ router.post('/test', function(req, res) {
     });
 
 });
+*/
+
 
 app.use('/', router);
 
 var port = 3000;
 app.set('port', process.env.PORT || port);
 
-var server = app.listen(app.get('port'), function () {
-  console.log('Static server listening on port %s', server.address().port);
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+    
+    
+  socket.on('message', function(msg){
+    console.log(msg);  
+    io.emit('message', msg);
+  });
+    
+});
+
+http.listen(app.get('port'), function() {
+   console.log('Listening on port %s', app.get('port'));
 });
