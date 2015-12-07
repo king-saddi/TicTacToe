@@ -1,13 +1,9 @@
-<section ng-controller="userController as users">  
-	<form name="myForm">
-		<label>Enter a User Name
-			<input type="text" ng-model="user_name">
-		</label>
+<section ng-controller="userController as user">  
+	<form ng-submit="user.register()" name="signInForm" role="form">
+	  <div class="form-group">
+		Enter your username: <input type="text" name="username" ng-model="user.user.username" placeholder="Name" required>
+	  </div>
+		
+	  <input type="submit" value="Match">
 	</form>
-	<form name="myForm">
-		<label>Enter Opponent's User Name
-			<input type="text" ng-model="opponent_user_name">
-		</label>
-	</form>
-	<button ng-show=true ng-click="users.launch()" >Submit</button>
 </section>

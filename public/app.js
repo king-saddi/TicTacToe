@@ -17,11 +17,41 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         });        	
 })
 
+.controller('userController', ['UserService', function(UserService) {
+        var user = this;
+        user.user = {};     // making it a JSON object so we can send it using $http
+        
+        user.register = function(){
+            console.log('The user object is:' + user.user);
+            UserService.addUser(user.user);
+            UserService.getUser();
+        }
+}])
 
-// put the controller code here, this was the issue
-.controller('userController', [function() {
-	this.launch = function(){
-	};
+.factory('UserService', ['$http', function($http) {
+  var currentUsers ={};
+
+  var grabUsers = function() {
+    return $http.get('/test')
+      .then(function(res) {
+        currentUsers = res.data;
+        console.log('Inside grabUsers function, grabbing data from mongo');
+        console.log('Current users in mongo: ', currentUsers);
+    }, function(errResponse) {
+      console.error('users query error');
+    });
+  };
+
+  return {
+    addUser: function(user) {
+      console.log('Inside addUser function, adding: ' + user);
+      $http.post('/test', user);
+    },
+    getUser: function(){
+      return grabUsers();
+    }
+  };
+    
 }])
 
 .controller('ticController', [function() {
