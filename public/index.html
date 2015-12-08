@@ -35,10 +35,10 @@
         
     </head>
 	<body>
-		<div><a ui-sref="register">Register</a>  <a ui-sref="game">Game</a> <a ui-sref="chat">Chat</a></div>
-		<!-- ui-view is where we inject the ui-router content-->
-		<div class="container">
-			<div ui-view></div>
-		</div>
+        <div class="container-fluid">
+                    <!---<div ui-view="register"></div>--->
+                    <div ui-view="game"></div>
+                    <div ui-view="chat"></div>
+        </div>  
 	</body>
 </html>

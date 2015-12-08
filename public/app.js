@@ -3,22 +3,22 @@ var routerApp = angular.module('gameApp', ['ui.router']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     
-    $urlRouterProvider.otherwise('/home');
-    
-    $stateProvider
-        .state('register', {
-            url: '/register',
-            templateUrl: 'view/register.tmpl.html'
-        })
-		
-        .state('game', {
-            url: '/game',
-            templateUrl: 'view/game.tmpl.html'
-        })     	
-        .state('chat', {
-            url: '/chat',
-            templateUrl: 'view/chat.tmpl.html'
-        });     
+        $stateProvider
+            .state('GameBoard', {
+                url: '/',
+                views: {
+                    'register': {
+                        templateUrl: 'view/register.tmpl.html'
+                    },
+                    'game': {
+                        templateUrl: 'view/game.tmpl.html'
+                    },
+                    'chat': {
+                        templateUrl: 'view/chat.tmpl.html'
+                    }
+                }
+            });
+        $urlRouterProvider.otherwise('/');
 })
 
 .controller('userController', ['UserService', function(UserService) {
@@ -89,6 +89,8 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 		7:"",
 		8:""
 		};
+        
+        console.log('in resetBoard' + this.board);
 	}
 
 	this.start = function(){
