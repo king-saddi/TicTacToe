@@ -59,13 +59,14 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 }])
 
 .controller('ticController', [function() {
-	this.moves = 0;
-	this.rflag = false;
-	this.sflag = true;
-	this.player1 = "X";
-	this.player2 = "O";
-	this.currentPlayer = "";
-	this.board = {
+    var tic = this;
+	tic.moves = 0;
+	tic.rflag = false;
+	tic.sflag = true;
+	tic.player1 = "X";
+	tic.player2 = "O";
+	tic.currentPlayer = "";
+	tic.board = {
 		0:"",
 		1:"",
 		2:"",
@@ -77,8 +78,8 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 		8:""
 	};
 
-	resetBoard = function() {
-		this.board = {
+	tic.resetBoard = function() {
+		tic.board = {
 		0:"",
 		1:"",
 		2:"",
@@ -90,81 +91,81 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 		8:""
 		};
         
-        console.log('in resetBoard' + this.board);
+        console.log('in resetBoard' + tic.board);
 	}
 
-	this.start = function(){
+	tic.start = function(){
 		console.log('Started tic-tac-toe game.');
-		this.currentPlayer = this.player1;
-		resetBoard();
-		this.sflag = false;
+		tic.currentPlayer = tic.player1;
+		tic.resetBoard();
+		tic.sflag = false;
 	};
 	
-	this.restart = function(){
+	tic.restart = function(){
 		console.log('Restarting tic-tac-toe game.');
-		this.currentPlayer = this.player1;
-		resetBoard();
-		this.rflag = false;
+		tic.currentPlayer = tic.player1;
+		tic.resetBoard();
+		tic.rflag = false;
 	}
 
-	this.checkForWinner = function(){
+	tic.checkForWinner = function(){
 		// horizontal wins
 		if (
-		((this.board[0] == this.board[1] && this.board[1] == this.board[2]) && this.board[0] != "") || 
-		((this.board[3] == this.board[4] && this.board[4] == this.board[5]) && this.board[3] != "") || 
-		((this.board[6] == this.board[7] && this.board[7] == this.board[8]) && this.board[6] != "") || 
-		// verthisal wins
-		((this.board[0] == this.board[3] && this.board[3] == this.board[6]) && this.board[0] != "") || 
-		((this.board[1] == this.board[4] && this.board[4] == this.board[7]) && this.board[1] != "") || 
-		((this.board[2] == this.board[5] && this.board[5] == this.board[8]) && this.board[2] != "") || 
+		((tic.board[0] == tic.board[1] && tic.board[1] == tic.board[2]) && tic.board[0] != "") || 
+		((tic.board[3] == tic.board[4] && tic.board[4] == tic.board[5]) && tic.board[3] != "") || 
+		((tic.board[6] == tic.board[7] && tic.board[7] == tic.board[8]) && tic.board[6] != "") || 
+		// vertical wins
+		((tic.board[0] == tic.board[3] && tic.board[3] == tic.board[6]) && tic.board[0] != "") || 
+		((tic.board[1] == tic.board[4] && tic.board[4] == tic.board[7]) && tic.board[1] != "") || 
+		((tic.board[2] == tic.board[5] && tic.board[5] == tic.board[8]) && tic.board[2] != "") || 
 		// diagonal wins
-		((this.board[0] == this.board[4] && this.board[4] == this.board[8]) && this.board[0] != "") || 
-		((this.board[2] == this.board[4] && this.board[4] == this.board[6]) && this.board[2] != ""))
+		((tic.board[0] == tic.board[4] && tic.board[4] == tic.board[8]) && tic.board[0] != "") || 
+		((tic.board[2] == tic.board[4] && tic.board[4] == tic.board[6]) && tic.board[2] != ""))
 		{
-			this.win();
+			tic.win();
 		}
-		else if((this.moves == 9)){
-			this.draw();
+		else if((tic.moves == 9)){
+			tic.draw();
 		}
 	}
 	
-	this.win = function() {
-			alert("Player " + this.currentPlayer + " won! Click restart to play again.");
-			this.moves = 0;
-			this.rflag = true;
+	tic.win = function() {
+			alert("Player " + tic.currentPlayer + " won! Click restart to play again.");
+			tic.moves = 0;
+			tic.rflag = true;
 	}
 	
-	this.draw = function() {
+	tic.draw = function() {
 			alert("DRAW! Click restart to play again.");
-			this.moves = 0;
-			this.rflag = true;
+			tic.moves = 0;
+			tic.rflag = true;
 	}
 	
-	this.select = function(loc) {
+	tic.select = function(loc) {
 		//so that user can't click on an empty square if someone has won or the game hasn't started yet
-		if(this.sflag == true){
+		if(tic.sflag == true){
 			alert("The game has not started. Click start to begin");
 		} 
-		else if(this.rflag == true){
+		else if(tic.rflag == true){
 			alert("The game is over. Click restart to play again");
 		}
 		else{
 			
-			if(this.board[loc] != "") {
+			if(tic.board[loc] != "") {
 				alert("Please choose a different position!");
 			}
 
 			else {
-				this.moves++;
-				this.board[loc] = this.currentPlayer;
+				tic.moves++;
+				tic.board[loc] = tic.currentPlayer;
 
-				if (this.currentPlayer == this.player1) {
-					this.checkForWinner();
-					this.currentPlayer = this.player2;
+				if (tic.currentPlayer == tic.player1) {
+					tic.checkForWinner();
+					tic.currentPlayer = tic.player2;
 				}
 				else {
-					this.checkForWinner();
-					this.currentPlayer = this.player1;
+					tic.checkForWinner();
+					tic.currentPlayer = tic.player1;
 				}
 
 			}
