@@ -29,5 +29,11 @@ td {
   text-align: center;
 }
 
+.register_styling {
+	text-align: center;
+	border: 2px solid #cccccc;
+	color: slategray;
+}
+
 .left {float: left; display: inline-block; width:550px}
 .right{float: right; display: inline-block; width:200px}

@@ -13,13 +13,8 @@
         
     </head>
 	<body>
-
-            <section class="left">
-                <div ui-view="game"></div>
-            </section>
-            <section class="right">
-                <div ui-view="chat"></div>
-            </section>
-            <div ui-view="register"></div>   
+		<div class="register_styling" ui-view="register"></div> 
+		<div class="left" ui-view="game"></div>
+		<div class="right" ui-view="chat"></div>  
 	</body>
 </html>
