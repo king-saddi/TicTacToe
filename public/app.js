@@ -26,33 +26,39 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         user.user = {};     // making it a JSON object so we can send it using $http
         
         user.register = function(){
-            console.log('The user object is:' + user.user);
             UserService.addUser(user.user);
-            UserService.getUser();
         }
 }])
 
 .factory('UserService', ['$http', function($http) {
-  var currentUsers ={};
-
-  var grabUsers = function() {
-    return $http.get('/test')
-      .then(function(res) {
-        currentUsers = res.data;
-        console.log('Inside grabUsers function, grabbing data from mongo');
-        console.log('Current users in mongo: ', currentUsers);
-    }, function(errResponse) {
-      console.error('users query error');
-    });
-  };
-
   return {
-    addUser: function(user) {
-      console.log('Inside addUser function, adding: ' + user);
-      $http.post('/test', user);
+    getAllUsers: function(){
+      return $http.get('/test')
+      .then(function(res) {
+            console.log('User list: ', res.data);
+        }, function(errResponse) {
+          console.error('Error getting the users');
+        });
     },
-    getUser: function(){
-      return grabUsers();
+    addUser: function(user){
+      return $http.get('/test')
+      .then(function(res) {
+          var flag = 0;
+          for (var i = 0; i < res.data.length; i++) {
+                if(res.data[i].username == user.username) {
+                    flag = 1;
+                }
+          }
+          if(flag) {
+              console.log('Welcome back ' + user.username + '!');
+          }
+          else {
+              console.log('NEW USER: ' + user.username + ' was successfully added to KSKS app!');
+              $http.post('/test', user);
+          }
+        }, function(errResponse) {
+          console.error('Error getting the users');
+        });
     }
   };
     

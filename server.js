@@ -8,7 +8,6 @@ var methodOverride = require('method-override');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-/*
 // Connecting to the Mongo DataBase
 mongoose.connect('mongodb://test:test@ds061974.mongolab.com:61974/ksks');
 
@@ -19,9 +18,7 @@ var userSchema = new Schema({
     username: String
 });
 
-var User = mongoose.model('User', userSchema);
-*/
-
+var UserModel = mongoose.model('User', userSchema);
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -30,20 +27,33 @@ app.use(bodyParser.json());
 app.use(serveStatic(__dirname + '/public'));
 
 var router = express.Router();
-/*
+
 router.get('/test', function(req, res) {
-    User.find({}, function(err, users){
-        if(err) throw err;
-        res.send(users);
+    // return the whole list
+    UserModel.find({}, function(err, user_list){
+        if(err) 
+            throw err;
+        res.send(user_list);
     });
+    /*
+    // return the id of the user
+    else {
+        UserModel.find({}, function(err, user_list) {
+            if(err) 
+                throw err;
+            for (var i = 0; i < user_list.length; i++) {
+                console.log(user_list[i].username + " == " + mongoUser.username);
+                if(user_list[i].username == mongoUser.username) {
+                    res.send(mongoUser.username);
+                }
+            }
+        });
+    }
+    */
 });
 
 router.post('/test', function(req, res) {
-    
-    var user = req.body;
-    console.log(user);
-    
-    var mongoUser = User(user);
+    var mongoUser = UserModel(req.body);
     
     //storing user into mongo
     mongoUser.save(function(err) {
@@ -53,8 +63,6 @@ router.post('/test', function(req, res) {
     });
 
 });
-*/
-
 
 app.use('/', router);
 
