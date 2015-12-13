@@ -1,9 +1,9 @@
 <section ng-controller="userController as user">  
 	<form ng-submit="user.register()" name="signInForm" role="form">
 	  <div>
-		Enter your username: <input type="text" name="username" ng-model="user.user.username" placeholder="Name" required>
+        <input type="text" name="username" ng-class="{ color_input_text: true }" ng-model="user.user.username" placeholder="Username" required></input>
 	  </div>
-		
-	  <input type="submit" value="Match">
+      <br>
+      <button type="submit" value="Log in">Log in</button>
 	</form>
 </section>

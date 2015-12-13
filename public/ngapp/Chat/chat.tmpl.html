@@ -1,6 +1,8 @@
 <section>
     <ul id="messages"></ul>
     <form action="" onsubmit="sendMessage();">
-      <input id="m" autocomplete="off" /><button>Send</button>
+        <input id="m" autocomplete="off" ng-class="{ color_input_text: true }" placeholder="Send opponent a message" required></input>
+        <button>Send</button>
+    
     </form>
 </section>

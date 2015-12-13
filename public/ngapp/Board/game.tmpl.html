@@ -1,40 +1,43 @@
 <section ng-controller="ticController as toe">  
-	<header id="players">
-		<div>Current Players turn: {{toe.currentPlayer}}</div>
-		<button ng-show="toe.sflag" ng-click="toe.start()" >Start Game</button>
-		<button ng-show="toe.rflag" ng-click="toe.restart()" >Restart Game</button>
-	</header>
+	<div id="players">
+        <button ng-show="toe.sflag" ng-click="toe.start()" >Start Game</button>
+        <button ng-show="toe.rflag" ng-click="toe.restart()" >Restart Game</button>
+        <br><br><br>
+        <header>
+            <div>Current Players turn: {{toe.currentPlayer}}</div>
+        </header>
+    </div>
 	<table>
 		<tr>
-			<td id="0" ng-click="toe.select(0)">
+			<td id="0" ng-click="toe.select(0)" style="background-color: #baafaf">
 				<img ng-show="toe.board[0]" ng-src="/images/{{toe.board[0]}}.PNG">
 			</td>
-			<td id="1" ng-click="toe.select(1)">
+			<td id="1" ng-click="toe.select(1)" style="background-color: #d3d3d3">
 				<img ng-show="toe.board[1]" ng-src="/images/{{toe.board[1]}}.PNG">  
 			</td>
-			<td id="2" ng-click="toe.select(2)">
+			<td id="2" ng-click="toe.select(2)" style="background-color: #baafaf">
 				<img ng-show="toe.board[2]" ng-src="/images/{{toe.board[2]}}.PNG">  
 			</td>
 		</tr>
 		<tr>
-			<td id="3" ng-click="toe.select(3)">
+			<td id="3" ng-click="toe.select(3)" style="background-color: #d3d3d3">
 				<img ng-show="toe.board[3]" ng-src="/images/{{toe.board[3]}}.PNG">  
 			</td>
-			<td id="4" ng-click="toe.select(4)">
+			<td id="4" ng-click="toe.select(4)" style="background-color: #baafaf">
 				<img ng-show="toe.board[4]" ng-src="/images/{{toe.board[4]}}.PNG">  
 			</td>
-			<td id="5" ng-click="toe.select(5)">
+			<td id="5" ng-click="toe.select(5)" style="background-color: #d3d3d3">
 				<img ng-show="toe.board[5]" ng-src="/images/{{toe.board[5]}}.PNG">
 			</td>
 		</tr>
 		<tr>
-			<td id="6" ng-click="toe.select(6)">
+			<td id="6" ng-click="toe.select(6)" style="background-color: #baafaf">
 				<img ng-show="toe.board[6]" ng-src="/images/{{toe.board[6]}}.PNG">  
 			</td>
-			<td id="7" ng-click="toe.select(7)">
+			<td id="7" ng-click="toe.select(7)" style="background-color: #d3d3d3">
 				<img ng-show="toe.board[7]" ng-src="/images/{{toe.board[7]}}.PNG">  
 			</td>
-			<td id="8" ng-click="toe.select(8)">
+			<td id="8" ng-click="toe.select(8)" style="background-color: #baafaf">
 				<img ng-show="toe.board[8]" ng-src="/images/{{toe.board[8]}}.PNG">  
 			</td>
 		</tr>
