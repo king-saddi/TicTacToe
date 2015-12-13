@@ -33,6 +33,7 @@ td {
 	text-align: center;
 }
 
-.color_input_text { 
+.input_style { 
+    width: 150px; 
     color: #18BC9C;
 }

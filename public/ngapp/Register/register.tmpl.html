@@ -1,9 +1,10 @@
 <section ng-controller="userController as user">  
 	<form ng-submit="user.register()" name="signInForm" role="form">
 	  <div>
-        <input type="text" name="username" ng-class="{ color_input_text: true }" ng-model="user.user.username" placeholder="Username" required></input>
+        <input type="text" name="username" ng-class="{ input_style: true }" ng-model="user.user.username" placeholder="User Name" required></input>
+        <input type="text" name="opponentname" ng-class="{ input_style: true }" ng-model="user.opponent.username" placeholder="Opponent Name" required></input>
 	  </div>
       <br>
-      <button type="submit" value="Log in">Log in</button>
+      <button type="submit" value="Play">Play</button>
 	</form>
 </section>

@@ -9,24 +9,25 @@ angular.module('shared.register.service', [])
           console.error('Error getting the users');
         });
     },
+    validateUser: function(user){
+      return $http.get('/test')
+      .then(function(res) {
+          for (var i = 0; i < res.data.length; i++)
+                if(res.data[i].username == user.username)
+                    return true;
+          console.log('[INFO: User ' + user.username + ' was not in the db]');
+          return false;
+        }, function(errResponse) {
+          console.error('[ERROR: getting users]');
+        });
+    },
     addUser: function(user){
       return $http.get('/test')
       .then(function(res) {
-          var flag = 0;
-          for (var i = 0; i < res.data.length; i++) {
-                if(res.data[i].username == user.username) {
-                    flag = 1;
-                }
-          }
-          if(flag) {
-              console.log('Welcome back ' + user.username + '!');
-          }
-          else {
-              console.log('NEW USER: ' + user.username + ' was successfully added to KSKS app!');
+              console.log('[INFO: new user ' + user.username + ' was successfully added to KSKS app]');
               $http.post('/test', user);
-          }
         }, function(errResponse) {
-          console.error('Error getting the users');
+            console.error('[ERROR: adding user]');
         });
     }
   };
