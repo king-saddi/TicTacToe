@@ -1,5 +1,8 @@
 angular.module('shared.register.service', [])
 .factory('UserService', ['$http', function($http) {
+    var startFlag = false;
+    
+    
   return {
     getAllUsers: function(){
       return $http.get('/test')
@@ -12,9 +15,10 @@ angular.module('shared.register.service', [])
     validateUser: function(user){
       return $http.get('/test')
       .then(function(res) {
-          for (var i = 0; i < res.data.length; i++)
+          for (var i = 0; i < res.data.length; i++){
                 if(res.data[i].username == user.username)
                     return true;
+                }
           console.log('[INFO: User ' + user.username + ' was not in the db]');
           return false;
         }, function(errResponse) {
@@ -29,7 +33,18 @@ angular.module('shared.register.service', [])
         }, function(errResponse) {
             console.error('[ERROR: adding user]');
         });
+    },
+    setFlag : function(flag){
+        startFlag = flag;
+        console.log('flag is now: ' + startFlag);
+    },
+    getFlag: function(){
+      return startFlag;
     }
+      
+      
+      
+      
   };
     
 }]);

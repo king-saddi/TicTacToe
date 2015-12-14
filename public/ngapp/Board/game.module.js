@@ -1,7 +1,11 @@
-angular.module('game', [])
-.controller('ticController', [function() {
+angular.module('game', [
+   'shared.register.service'
+])
+.controller('ticController', ['UserService', function(UserService) {
     var tic = this;
 	tic.moves = 0;
+    //this isn't being updated
+    tic.startFlag = UserService.getFlag();
 	tic.rflag = false;
 	tic.sflag = true;
 	tic.player1 = "X";
@@ -39,6 +43,7 @@ angular.module('game', [])
 		console.log('Started tic-tac-toe game.');
 		tic.currentPlayer = tic.player1;
 		tic.resetBoard();
+        //alert('the value of the userController gameFlag is: ' + user.gameFlag);
 		tic.sflag = false;
 	};
 	
@@ -112,4 +117,12 @@ angular.module('game', [])
 			}
 		}
 	};
+    
+    var init = function () {
+        console.log("UserService.getFlag(): " + UserService.getFlag());
+        //tic.startFlag = UserService.getFlag();
+    };
+    
+    init();
+    
 }]);

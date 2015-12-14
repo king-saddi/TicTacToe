@@ -1,10 +1,17 @@
 <section ng-controller="userController as user">  
-	<form ng-submit="user.register()" name="signInForm" role="form">
+	<form ng-show="user.registerFlag" ng-submit="user.registerUser()" name="signInForm" role="form">
 	  <div>
-        <input type="text" name="username" ng-class="{ input_style: true }" ng-model="user.user.username" placeholder="User Name" required></input>
-        <input type="text" name="opponentname" ng-class="{ input_style: true }" ng-model="user.opponent.username" placeholder="Opponent Name" required></input>
+        <input type="text" name="username" ng-class="{ input_style: true }" ng-model="user.user.username" placeholder="User Name" required>Enter your username: </input>    
 	  </div>
       <br>
-      <button type="submit" value="Play">Play</button>
+      <button type="submit" value="Register">Register</button>
+	</form>
+
+	<form ng-show="user.matchFlag" ng-submit="user.matchPlayers()" name="signInForm" role="form">
+	  <div>
+        <input type="text" name="opponentname" ng-class="{ input_style: true }" ng-model="user.opponent.username" placeholder="Opponent Name" required>Enter the opponents user name: </input>
+	  </div>
+      <br>
+      <button type="submit" value="Match">Match</button>
 	</form>
 </section>
