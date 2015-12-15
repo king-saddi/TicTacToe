@@ -6,7 +6,6 @@ angular.module('register', [
         user.user = {};     // making it a JSON object so we can send it using $http
         user.registerFlag = true;
         user.matchFlag = false;
-        user.gameFlag = false;
         
         user.registerUser = function(){
             
@@ -40,8 +39,8 @@ angular.module('register', [
                         alert("Succesful Match!");
                         alert("INFO: Initiating game between " + user.user.username + " & " + user.opponent.username);
                         user.matchFlag = false;
-                        user.gameFlag = true;
-                        UserService.setFlag(user.gameFlag);
+                        user.startFlag = true;
+                        UserService.setFlag(user.startFlag);
                     }
                 });
             }

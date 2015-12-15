@@ -1,6 +1,4 @@
-<section ng-controller="ticController as toe">  
-    
-<section>
+<section ng-controller="ticController as toe" ng-show="toe.startFlag">  
 	<div id="players">
         <button ng-show="toe.sflag" ng-click="toe.start()" >Start Game</button>
         <button ng-show="toe.rflag" ng-click="toe.restart()" >Restart Game</button>
@@ -44,5 +42,5 @@
 			</td>
 		</tr>
 	</table>
-</section>
+
 </section>

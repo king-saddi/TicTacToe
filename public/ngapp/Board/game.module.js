@@ -1,11 +1,19 @@
 angular.module('game', [
    'shared.register.service'
 ])
-.controller('ticController', ['UserService', function(UserService) {
+.controller('ticController', ['UserService', '$scope', function(UserService, $scope) {
     var tic = this;
 	tic.moves = 0;
     //this isn't being updated
+    tic.UserService = UserService;
     tic.startFlag = UserService.getFlag();
+    
+    $scope.$watch(function(){ return UserService.getFlag(); }, function(newVal){                  
+            console.log("New Data", newVal);
+            tic.startFlag = newVal;
+                  
+    }, true);
+    
 	tic.rflag = false;
 	tic.sflag = true;
 	tic.player1 = "X";

@@ -38,12 +38,11 @@ angular.module('shared.register.service', [])
         startFlag = flag;
         console.log('flag is now: ' + startFlag);
     },
-    getFlag: function(){
-      return startFlag;
-    }
-      
-      
-      
+    getFlag : function(){
+        return startFlag;
+        
+    },
+    startFlag : startFlag
       
   };
     
